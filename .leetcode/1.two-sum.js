@@ -10,20 +10,19 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(nums, target) {
+
+var twoSum =  function(nums, target){
     let hashmap = {};
+
     for(let i = 0; i < nums.length; i++){
-        // Current + x = target
+        // current + x =  target
         // x = target - current
-
-        let complement = target - nums[i];
-        if(hashmap.hasOwnProperty(complement)){
+        let complement =  target - nums[i];
+        if(complement in hashmap){
             return[i,hashmap[complement]];
-            hashmap[nums[i]] = i;
         }
-
+        hashmap[nums[i]] = i
     }
-    
-};
+}
 // @lc code=end
 

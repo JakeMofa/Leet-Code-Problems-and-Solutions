@@ -1,10 +1,21 @@
+#
+# @lc app=leetcode id=1 lang=python3
+#
+# [1] Two Sum
+#
+
+# @lc code=start
 class Solution:
-    def lengthOfLIS(self, nums: List[int]) -> int:
-        N =  len(nums)
-        dp = [1] * N
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashmap = {}
         
-        for n in range(N):
-            for i in range(n):
-                if nums[i]<nums[n]:
-                    dp[n]=max(dp[n],dp[i]+1)
-        return max(dp)
+        for i in range(len(nums)):
+            #Current + x =  target
+            #X =  target - Current
+            complement = target - nums[i]
+            if complement in hashmap:
+                return[i, hashmap[complement]]
+            hashmap[nums[i]] = i
+            
+        
+# @lc code=end
